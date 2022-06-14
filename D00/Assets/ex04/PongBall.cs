@@ -31,9 +31,7 @@ public class PongBall : MonoBehaviour
         float ballY = ball.GetComponent<Transform>().position.y;
         float ballX = ball.GetComponent<Transform>().position.x;
         float rY = objRPlayer.GetComponent<Transform>().position.y;
-        float rX = objRPlayer.GetComponent<Transform>().position.x;
         float lY = objLPlayer.GetComponent<Transform>().position.y;
-        float lX = objLPlayer.GetComponent<Transform>().position.x;
         
         if (ballY >= 4 || ballY <= -4)
             yDirBall = -yDirBall;
@@ -41,11 +39,13 @@ public class PongBall : MonoBehaviour
         {
             startBall();
             _lPlayer.score++;
+            Debug.Log("Player 1: " + _lPlayer.score + " | Player 2: " + _rPlayer.score);
         }
         if (ballX < -10)
         {
             startBall();
             _rPlayer.score++;
+            Debug.Log("Player 1: " + _lPlayer.score + " | Player 2: " + _rPlayer.score);
         }
 
         if (ballX >= 8.8f && ballX < 10)
