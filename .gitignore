@@ -70,5 +70,10 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+*test*
+
 D00/Assets/.git
 D00/Assets/.gitignore
+
+D01/Assets/.git
+D01/Assets/.gitignore
