@@ -5,14 +5,10 @@ using UnityEngine;
 public class Pipe : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public static bool isPipe(float bY, float pX)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (pX > 1.1f || pX < -1.1f) return false;
+        if (bY < 2.4f && bY > -.7f) return false;
+        return true;
     }
 }
