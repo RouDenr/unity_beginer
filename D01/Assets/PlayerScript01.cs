@@ -34,18 +34,18 @@ public class PlayerScript01 : MonoBehaviour
         _player.GetComponent<Transform>().position = new Vector3(_startX, _startY);
     }
     
-    public void SetActive()
+    public void PlSetActive()
     {
         SetLayer("Player");
         isActive = true;
-        _player.mass = 1;
+        _player.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     
-    public void SetFreeze()
+    public void PlSetFreeze()
     {
         SetLayer("Ground");
         isActive = false;
-        _player.mass = 500;
+        _player.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void SetLayer(string layerName)

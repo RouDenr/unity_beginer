@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Camera : MonoBehaviour
+public class Camera01 : MonoBehaviour
 {
     // public GameObject camera;
     public GameObject red;
@@ -16,9 +16,9 @@ public class Camera : MonoBehaviour
 
     private void ChangePlayer(GameObject player)
     {
-        _mainPlayer.SetFreeze();
+        _mainPlayer.PlSetFreeze();
         _mainPlayer = player.GetComponent<PlayerScript01>();
-        _mainPlayer.SetActive();
+        _mainPlayer.PlSetActive();
     }
 
     private bool CheckWin()

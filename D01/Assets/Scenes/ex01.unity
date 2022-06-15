@@ -343,7 +343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169288121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.258, y: -3.6, z: 0}
+  m_LocalPosition: {x: 2.75, y: -2.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -745,7 +745,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 500
+  m_Mass: 1
   m_LinearDrag: 15
   m_AngularDrag: 1
   m_GravityScale: 5
@@ -869,7 +869,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   centerCheck: {fileID: 327669905}
-  centerCheckRadius: 0.5
+  centerCheckRadius: 0.01
   centerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1048,7 +1048,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 500
+  m_Mass: 1
   m_LinearDrag: 15
   m_AngularDrag: 1
   m_GravityScale: 5
@@ -1172,7 +1172,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   centerCheck: {fileID: 2101979347}
-  centerCheckRadius: 0.5
+  centerCheckRadius: 0.01
   centerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1217,7 +1217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1323324460}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,7 +1401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610004277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25002527, y: -4.107, z: 0}
+  m_LocalPosition: {x: 2.7579746, y: -3.317, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1445,7 +1445,7 @@ GameObject:
   - component: {fileID: 1652301164}
   - component: {fileID: 1652301163}
   - component: {fileID: 1652301162}
-  - component: {fileID: 1652301161}
+  - component: {fileID: 1652301165}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1453,21 +1453,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1652301161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652301160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86d1f4902cdf1445686d2d1c3676512d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  red: {fileID: 2032741215}
-  yellow: {fileID: 938058089}
-  blue: {fileID: 723144644}
 --- !u!81 &1652301162
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1534,6 +1519,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1652301165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652301160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3d6d95dac8b45078a1fa7bcb4019fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  red: {fileID: 2032741215}
+  yellow: {fileID: 938058089}
+  blue: {fileID: 723144644}
 --- !u!1 &1882440304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,7 +1612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882440304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25002527, y: -3.228, z: 0}
+  m_LocalPosition: {x: 2.7579746, y: -2.438, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1769,7 +1769,7 @@ GameObject:
   - component: {fileID: 2032741218}
   - component: {fileID: 2032741217}
   - component: {fileID: 2032741221}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: red
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1912,7 +1912,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   centerCheck: {fileID: 1323324460}
-  centerCheckRadius: 0.5
+  centerCheckRadius: 0.01
   centerLayer:
     serializedVersion: 2
     m_Bits: 256
