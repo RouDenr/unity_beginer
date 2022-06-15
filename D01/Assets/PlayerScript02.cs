@@ -9,14 +9,11 @@ public class PlayerScript02 : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
-    private bool _isTouchingGround;
-    
+    private bool _isTouchingGround
+        ;
     public Transform centerCheck;
     public float centerCheckRadius;
     public LayerMask centerLayer;
-    
-    public float plCheckRadius;
-    public LayerMask plLayer;
 
     public float pSpeed;
 
@@ -64,11 +61,11 @@ public class PlayerScript02 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log("x:" + groundLayer + " " + gameObject.GetComponent<LayerMask>().value);
         if (!isActive) return;
         var position = groundCheck.position;
         _isTouchingGround = Physics2D.OverlapCircle(position,
                                 groundCheckRadius, groundLayer);
-        // if (Physics2D.OverlapCircle(position))
         DoSpep(KeyCode.RightArrow ,KeyCode.LeftArrow);
         DoJump();
         CheckWin();
