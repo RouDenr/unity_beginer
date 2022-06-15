@@ -1,6 +1,6 @@
-MESS := fix
+MESS := "fix"
 
 git	:
 	git add .
-	git commit -m ${MESS}
+	git commit -m "${MESS}"
 	git push

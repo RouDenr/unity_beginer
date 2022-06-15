@@ -56,10 +56,6 @@ ExportedObj/
 */.DS_Store
 .DS_Store
 
-
-# Unity3D generated meta files
-*.meta
-
 # Unity3D generated file on crash reports
 sysinfo.txt
 
