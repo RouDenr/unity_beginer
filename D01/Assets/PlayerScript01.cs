@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript01 : MonoBehaviour
 {
     private Rigidbody2D _player;
     public bool isActive;
@@ -9,7 +9,11 @@ public class PlayerScript : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
-    private bool _isTouchingGround;
+    private bool _isTouchingGround
+        ;
+    public Transform centerCheck;
+    public float centerCheckRadius;
+    public LayerMask centerLayer;
 
     public float pSpeed;
 
@@ -30,14 +34,41 @@ public class PlayerScript : MonoBehaviour
         _player.GetComponent<Transform>().position = new Vector3(_startX, _startY);
     }
     
+    public void SetActive()
+    {
+        SetLayer("Player");
+        isActive = true;
+        _player.mass = 1;
+    }
+    
+    public void SetFreeze()
+    {
+        SetLayer("Ground");
+        isActive = false;
+        _player.mass = 500;
+    }
+
+    private void SetLayer(string layerName)
+    {
+        gameObject.layer = LayerMask.NameToLayer(layerName);
+    }
+
+    public bool CheckWin()
+    {
+        return Physics2D.OverlapCircle(centerCheck.position, centerCheckRadius, centerLayer);
+    }
+    
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log("x:" + groundLayer + " " + gameObject.GetComponent<LayerMask>().value);
         if (!isActive) return;
-        _isTouchingGround = Physics2D.OverlapCircle(groundCheck.position,
-            groundCheckRadius, groundLayer);
+        var position = groundCheck.position;
+        _isTouchingGround = Physics2D.OverlapCircle(position,
+                                groundCheckRadius, groundLayer);
         DoSpep(KeyCode.RightArrow ,KeyCode.LeftArrow);
         DoJump();
+        CheckWin();
     }
 
     private void DoSpep(KeyCode kCodeRight, KeyCode kCodeLeft)
@@ -57,7 +88,6 @@ public class PlayerScript : MonoBehaviour
     private void DoJump()
     {
         if (!Input.GetKeyDown(KeyCode.Space)) return;
-        Debug.Log(_isTouchingGround);
         if (!_isTouchingGround) return;
         _player.velocity = new Vector2(0, pJump);
     }

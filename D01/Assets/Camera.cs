@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Camera : MonoBehaviour
 {
@@ -6,19 +7,24 @@ public class Camera : MonoBehaviour
     public GameObject red;
     public GameObject yellow;
     public GameObject blue;
-    private PlayerScript _mainPlayer;
+    private PlayerScript01 _mainPlayer;
     // Start is called before the first frame update
     void Start()
     {
-        _mainPlayer = red.GetComponent<PlayerScript>();
-        _mainPlayer.isActive = true;
+        _mainPlayer = red.GetComponent<PlayerScript01>();
     }
 
     private void ChangePlayer(GameObject player)
     {
-        _mainPlayer.isActive = false;
-        _mainPlayer = player.GetComponent<PlayerScript>();
-        _mainPlayer.isActive = true;
+        _mainPlayer.SetFreeze();
+        _mainPlayer = player.GetComponent<PlayerScript01>();
+        _mainPlayer.SetActive();
+    }
+
+    private bool CheckWin()
+    {
+        if (!red.GetComponent<PlayerScript01>().CheckWin()) return false;
+        return yellow.GetComponent<PlayerScript01>().CheckWin() && blue.GetComponent<PlayerScript01>().CheckWin();
     }
     
     // Update is called once per frame
@@ -32,11 +38,8 @@ public class Camera : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
             ChangePlayer(blue);
         if (Input.GetKeyDown(KeyCode.R))
-        {
-            red.GetComponent<PlayerScript>().SetStartPos();
-            yellow.GetComponent<PlayerScript>().SetStartPos();
-            blue.GetComponent<PlayerScript>().SetStartPos();
-            ChangePlayer(red);
-        }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (CheckWin())
+            Debug.Log("You Win");
     }
 }
