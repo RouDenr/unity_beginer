@@ -71,5 +71,5 @@ crashlytics-build.properties
 D00/Assets/.git
 D00/Assets/.gitignore
 
-D01/Assets/.git
-D01/Assets/.gitignore
+D0*/Assets/.git
+D0*/Assets/.gitignore
