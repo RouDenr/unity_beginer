@@ -668,7 +668,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstHuman: {fileID: 794849061}
-  humans: []
+  humans:
+  - {fileID: 1951234636}
   spawn: {fileID: 1882206522}
 --- !u!1 &519915699 stripped
 GameObject:
@@ -2049,6 +2050,11 @@ Transform:
   m_Father: {fileID: 2008526331}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1951234636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5850792193758453014, guid: ca5e31f9d304d41ca9c0cf59a9ee59db, type: 3}
+  m_PrefabInstance: {fileID: 330039833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2008526328
 GameObject:
   m_ObjectHideFlags: 0
