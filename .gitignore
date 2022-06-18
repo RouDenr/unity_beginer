@@ -11,12 +11,11 @@
 /[Mm]emoryCaptures/
 /cache
 /config
-/*/Library
+Library
 /*/Logs
 /*/obj
 /*/Packages
 /*/ProjectSettings
-/*/UserSettings
 /*/Temp
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
