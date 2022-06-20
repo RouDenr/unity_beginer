@@ -1,0 +1,6 @@
+rm -rf ~/Library/Unity/
+rm -rf ~/Library/UnityHub
+mkdir -p ~/goinfre/Unity
+mkdir -p ~/goinfre/UnityHub
+ln -s ~/goinfre/Unity ~/Library/Unity
+ln -s ~/goinfre/UnityHub ~/Library/UnityHub
