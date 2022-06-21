@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Camera : MonoBehaviour
@@ -26,10 +24,10 @@ public class Camera : MonoBehaviour
         var position = ball.transform.position;
         var rotation = ball.transform.rotation;
         var transform1 = transform;
-        transform1.position = new Vector3(position.x, position.y + 1, position.z - 3);
-        _rotX = rotation.x;
-        _rotY = rotation.y;
-        transform1.rotation = new Quaternion(rotation.x, rotation.y, rotation.z, rotation.w);
+        transform1.position = new Vector3(position.x, position.y, position.z);
+        _rotX = 0;
+        _rotY = 0;
+        transform1.rotation = new Quaternion(rotation.x, rotation.y + 3f, rotation.z - 2f, rotation.w);
         _isReadyPush = true;
     }
 
@@ -63,16 +61,32 @@ public class Camera : MonoBehaviour
         else if (Input.GetKey(KeyCode.W))
             MoveCamera(velocity.x, velocity.y, Speed);
         else if (Input.GetKey(KeyCode.A))
-            MoveCamera(-Speed, velocity.y, velocity.z);
+        {
+            if (_isReadyPush)
+                RotateCamera(1f);
+            else
+                MoveCamera(-Speed, velocity.y, velocity.z);
+        }
         else if (Input.GetKey(KeyCode.S))
             MoveCamera(velocity.x, velocity.y, -Speed);
         else if (Input.GetKey(KeyCode.D))
-            MoveCamera(Speed, velocity.y, velocity.z);
+        {
+            if (_isReadyPush)
+                RotateCamera(-1f);
+            else
+                MoveCamera(Speed, velocity.y, velocity.z);
+        }
         else
             _cameraRigidbody.constraints = RigidbodyConstraints.FreezeAll;
             
     }
-    
+
+    private void RotateCamera(float x)
+    {
+        ball.GetComponent<Ball>().ChangeRotationX(x);
+        SetCameraOnBall();
+    }
+
     // Update is called once per frame
     void Update()
     {
