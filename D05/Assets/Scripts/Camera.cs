@@ -17,6 +17,7 @@ public class Camera : MonoBehaviour
     {
         _ballRigidbody = ball.GetComponent<Rigidbody>();
         _cameraRigidbody = gameObject.GetComponent<Rigidbody>();
+        SetCameraOnBall();
     }
 
     private void SetCameraOnBall()
@@ -24,10 +25,11 @@ public class Camera : MonoBehaviour
         var position = ball.transform.position;
         var rotation = ball.transform.rotation;
         var transform1 = transform;
-        transform1.position = new Vector3(position.x, position.y, position.z);
+        transform1.position = new Vector3(position.x, position.y + 1, position.z - 2f);
+        // transform1.position = new Vector3(0, 0, 0);
         _rotX = 0;
         _rotY = 0;
-        transform1.rotation = new Quaternion(rotation.x, rotation.y + 3f, rotation.z - 2f, rotation.w);
+        transform1.rotation = new Quaternion(rotation.x, rotation.y , rotation.z , rotation.w);
         _isReadyPush = true;
     }
 

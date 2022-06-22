@@ -11,12 +11,13 @@ public class Ball : MonoBehaviour
     {
         _rigidbody = gameObject.GetComponent<Rigidbody>();
         _rotX = 0;
+        _isFreeze = false;
     }
 
     public void PushBall()
     {
         _rigidbody.constraints = RigidbodyConstraints.None;
-        _rigidbody.velocity = new Vector3(0, 5f, 5f);
+        _rigidbody.velocity = transform.forward * 30f;
         // _rigidbody.velocity = 
     }
     
@@ -31,11 +32,13 @@ public class Ball : MonoBehaviour
     {
         if (Mathf.Abs(_rigidbody.velocity.magnitude) < 1.3f)
         {
+        
             if (!_isFreeze)
             {
+                // _rigidbody.rotation = new Quaternion(0, 0, 0, 0);
                 _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-                _rigidbody.rotation = new Quaternion(0, 0, 0, 0);
                 _isFreeze = true;
+                _rigidbody.rotation = new Quaternion(0f, 0f, 0f, 0f);
             }
         }
         else
